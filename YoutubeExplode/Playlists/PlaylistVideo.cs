@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using YoutubeExplode.Common;
 using YoutubeExplode.Videos;
 
@@ -11,6 +12,10 @@ namespace YoutubeExplode.Playlists;
 /// </summary>
 public class PlaylistVideo : IVideo, IBatchItem
 {
+    public JsonElement? Content { get; set; }
+
+    public int? Index { get; set; }
+
     /// <summary>
     /// ID of the playlist that contains this video.
     /// </summary>

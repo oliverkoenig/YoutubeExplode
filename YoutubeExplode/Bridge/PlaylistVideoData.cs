@@ -12,6 +12,9 @@ internal class PlaylistVideoData
     private readonly JsonElement _content;
 
     [Lazy]
+    public JsonElement? Content => _content;
+
+    [Lazy]
     public int? Index =>
         _content
             .GetPropertyOrNull("navigationEndpoint")

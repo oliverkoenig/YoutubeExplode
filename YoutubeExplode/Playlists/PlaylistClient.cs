@@ -160,7 +160,11 @@ public class PlaylistClient
                     new Author(videoChannelId, videoChannelTitle),
                     videoData.Duration,
                     videoThumbnails
-                );
+                )
+                {
+                    Content = videoData.Content,
+                    Index = videoData.Index
+                };
 
                 videos.Add(video);
             }
@@ -172,6 +176,9 @@ public class PlaylistClient
             yield return Batch.Create(videos);
 
             visitorData ??= response.VisitorData;
+
+            // for debugging: grab only one page
+            //break;
         } while (true);
     }
 
